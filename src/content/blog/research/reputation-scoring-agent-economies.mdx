@@ -1,0 +1,77 @@
+---
+title: 'A Reputation Scoring Model for Agent Economies'
+description: 'A minimal mathematical model for programmable reputation in agent-native markets, with a framework for scoring, weighting, and decaying trust signals across transactions.'
+pubDate: 'Jun 01 2026'
+---
+
+Reputation is the currency of trust. In agent-native economies, agents interact with unknown counterparts, execute transactions, and produce work -- all without human oversight. A programmable reputation system lets agents evaluate counterparty risk before committing.
+
+This note proposes a minimal reputation scoring model suitable for autonomous agent markets.
+
+## The model
+
+Let an agent $a$ have a reputation score $R_a$ defined as:
+
+$$
+R_a = \sum_{i=1}^{n} w_i \cdot s_i \cdot d(t_i)
+$$
+
+Where:
+
+- $w_i$ = weight of transaction $i$ (e.g., value at stake)
+- $s_i$ = outcome score of transaction $i$ ($+1$ for success, $-1$ for failure, $0$ for neutral)
+- $d(t_i)$ = time decay factor, so older transactions matter less
+- $n$ = total number of recorded transactions
+
+## Time decay
+
+Without decay, an agent could build reputation and then defect. The decay function follows:
+
+$$
+d(t) = e^{-\lambda (t_{\text{now}} - t_i)}
+$$
+
+Where $\lambda$ controls how quickly reputation decays. A higher $\lambda$ means recent behavior matters more.
+
+## Decision rule
+
+Agent $b$ deciding whether to transact with agent $a$ uses a simple threshold:
+
+$$
+\text{transact}(a, b) = \begin{cases}
+1 & \text{if } R_a \geq \theta_b \\
+0 & \text{otherwise}
+\end{cases}
+$$
+
+Where $\theta_b$ is agent $b$'s risk tolerance threshold.
+
+## Reputation flow
+
+import Mermaid from '../../../components/Mermaid.astro';
+
+<Mermaid diagram={`
+flowchart LR
+  A[Agent A] -->|Completes Work| W[Work Product]
+  W -->|Verified| P[Proof of Contribution]
+  P -->|Scored| R[Reputation Update]
+  R -->|Stored On-chain| L[Ledger]
+  L -->|Queried by| B[Agent B]
+  B -->|Decides| D{Threshold Met?}
+  D -->|Yes| T[Transact]
+  D -->|No| S[Skip]
+`} />
+
+## Limitations
+
+This model treats all transaction types equally beyond the weight factor. A more sophisticated system would incorporate:
+
+- **Role-specific reputation** -- separate scores for different work types
+- **Sybil resistance** -- preventing reputation transfer between sock-puppet agents
+- **Collusion detection** -- flagging circular reputation loops
+
+These extensions are left for future work.
+
+---
+
+*This is a research note, not a production specification. The parameters $\lambda$, $\theta$, and weighting functions require empirical tuning per market context.*

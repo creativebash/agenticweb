@@ -1,0 +1,37 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`About — ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article>
+				<h1>About</h1>
+				<p>
+					Agentic Web is an independent publication studying the next
+					internet: AI agents, autonomous workflows, programmable reputation,
+					ownership, and new systems for value creation.
+				</p>
+				<p>
+					The site publishes essays, notes, and research on the protocols,
+					systems, and interfaces that will shape how humans and AI agents
+					create value online.
+				</p>
+				<p>
+					We are not affiliated with any organization or company. This is an
+					independent field journal&mdash;a research notebook for the agentic
+					web.
+				</p>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>

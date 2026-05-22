@@ -1,0 +1,81 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="intro">
+				<p>
+					The internet is entering a new phase. AI agents act, negotiate, and
+					create value alongside humans. Autonomous workflows replace manual
+					coordination. Reputation becomes programmable. Ownership shifts from
+					platforms to individuals and their agents.
+				</p>
+				<p>
+					Agentic Web is a field journal that studies these shifts. It
+					examines the protocols, systems, and ideas that will shape how
+					humans and AI agents build the next internet together.
+				</p>
+			</section>
+			<section class="topics">
+				<h2>What we cover</h2>
+				<ul>
+					<li>
+						<strong>Essays</strong> &mdash; Long-form arguments and thesis
+						pieces on agent-native economies, coordination systems, and
+						internet-native work.
+					</li>
+					<li>
+						<strong>Notes</strong> &mdash; Short observations, definitions,
+						and emerging patterns from the edge of the agentic web.
+					</li>
+					<li>
+						<strong>Research</strong> &mdash; Breakdowns of tools, protocols,
+						papers, frameworks, markets, and infrastructure.
+					</li>
+				</ul>
+			</section>
+			<section class="start">
+				<h2>Where to start</h2>
+				<p>
+					Browse the <a href="/archive">archive</a> for all published writing,
+					or dive into a category: <a href="/essays">Essays</a>,
+					<a href="/notes">Notes</a>, or <a href="/research">Research</a>.
+				</p>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+<style>
+	.intro {
+		font-size: 1.1em;
+		max-width: 600px;
+		margin: 2em auto;
+	}
+	.topics {
+		max-width: 600px;
+		margin: 2em auto;
+	}
+	.topics ul {
+		list-style: none;
+		padding: 0;
+	}
+	.topics li {
+		margin-bottom: 1em;
+		padding-left: 0;
+	}
+	.start {
+		max-width: 600px;
+		margin: 2em auto;
+	}
+</style>

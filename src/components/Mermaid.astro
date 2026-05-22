@@ -1,0 +1,38 @@
+---
+interface Props {
+	diagram: string;
+}
+
+const { diagram } = Astro.props;
+---
+
+<div class="mermaid-wrapper">
+	<div class="mermaid">
+		{diagram}
+	</div>
+</div>
+
+<script>
+	import mermaid from 'mermaid';
+
+	mermaid.initialize({
+		startOnLoad: true,
+		theme: 'default',
+		themeVariables: {
+			fontFamily: '"Newsreader", Georgia, serif',
+		},
+	});
+</script>
+
+<style>
+	.mermaid-wrapper {
+		max-width: 100%;
+		overflow-x: auto;
+		margin: 2em 0;
+		text-align: center;
+	}
+	.mermaid-wrapper svg {
+		max-width: 100%;
+		height: auto;
+	}
+</style>

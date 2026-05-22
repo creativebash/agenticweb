@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Agentic Web AW logo</title>
+  <desc id="desc">A sharp editorial AW monogram for Agentic Web.</desc>
+  <rect width="512" height="512" fill="#FFFFFF"/>
+  <g fill="#101319">
+    <!-- A -->
+    <path d="M42 370L70 361L165 118H189L281 361L309 370V381H222V370L252 361L231 304H119L97 361L126 370V381H42V370ZM128 282H222L176 157L128 282Z"/>
+
+    <!-- W -->
+    <path d="M282 128V116H370V128L344 136L392 304L442 136L415 128V116H500V128L473 136L398 382H365L316 210L266 382H234L160 136L135 128V116H225V128L195 136L244 304L294 136L282 128Z"/>
+  </g>
+</svg>
