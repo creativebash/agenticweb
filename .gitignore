@@ -26,3 +26,9 @@ pnpm-debug.log*
 # custom prompts and agent configuration
 prompts/
 AGENTS.md
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
